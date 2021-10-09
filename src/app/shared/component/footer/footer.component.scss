@@ -1,11 +1,11 @@
 @import "src/assets/sass/instance";
 footer {
     width: 100%;
-    background-color: $c3;
-    color: $c1;
+    background-color: var(--c3);
+    color: var(--c1);
     text-align: center;
     // z-index: 90;
     height: 110px;
-    position: relative;
+    // position: relative;
     bottom: 0px;
 }

@@ -1,0 +1,32 @@
+//Colors theme
+.ligth-theme {
+  --c0: transparent;
+  --c1: #ffffff;
+  --c2: #000;
+  --c3: #2224bf;
+  --c4: #adaef0;
+  --c5: #ededed;
+  --c6: #da920e;
+  --c7: #d3d3d3;
+}
+
+.dark-theme {
+  --c0: transparent;
+  --c1: #ffffff;
+  --c2: #000;
+  --c3: #2D3848;
+  --c4: #adaef0;
+  --c5: #ededed;
+  --c6: #da920e;
+  --c7: #d3d3d3;
+}
+$variables: (
+  --c0: var(--c0),
+  --c1: var(--c1),
+  --c2: var(--c2),
+  --c3: var(--c3),
+  --c4: var(--c4),
+  --c5: var(--c5),
+  --c6: var(--c6),
+  --c7: var(--c7),
+);

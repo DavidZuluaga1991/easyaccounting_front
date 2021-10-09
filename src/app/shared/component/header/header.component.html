@@ -1,3 +1,62 @@
-<header>
-  hola
+<header class="{{ viewMenu ? 'visible' : '' }}">
+  <div class="content_title">
+    <h1 class="content_title__title">
+      ACCEX ASOCIADOS OUTSOURCING
+    </h1>
+    <div class="content_title__mobile">
+      <button name="menu" aria-label="Menu" mat-icon-button class="content_title__mobile__menu" (click)="viewMenu = !viewMenu">
+        <mat-icon class="icon" *ngIf="!viewMenu">menu</mat-icon>
+        <mat-icon class="icon" *ngIf="viewMenu">close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <nav id="menu" class="menu_mobile {{ viewMenu ? '' : 'no_visible' }}">
+    <ul>
+      <!-- <li>
+        <a [routerLink]="['/']" routerLinkActive="router-link-active">Contabilidad</a>
+      </li>
+      <li>
+        <a [routerLink]="['/']" routerLinkActive="router-link-active">Informática</a>
+      </li> -->
+      <li>
+        <!-- <a [routerLink]="['/']" routerLinkActive="router-link-active">Industrial</a> -->
+        <p [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"> Servicios </p>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <!-- <mat-icon>dialpad</mat-icon> -->
+            <span>Contabilidad</span>
+          </button>
+          <button mat-menu-item>
+            <!-- <mat-icon>voicemail</mat-icon> -->
+            <span>Informática</span>
+          </button>
+          <button mat-menu-item>
+            <!-- <mat-icon>notifications_off</mat-icon> -->
+            <span>Industrial</span>
+          </button>
+        </mat-menu>
+      </li>
+      <li>
+        <a [routerLink]="['/']" routerLinkActive="router-link-active">Quienes somos</a>
+      </li>
+      <li>
+        <a [routerLink]="['/']" routerLinkActive="router-link-active">Contacto</a>
+      </li>
+      <li >
+        <div class="toggle">
+          <mat-icon class="icon">light_mode</mat-icon>
+          <mat-slide-toggle class="slide" (change)='themeAction($event)'></mat-slide-toggle>
+          <mat-icon class="icon">dark_mode</mat-icon>
+        </div>
+      </li>
+      <li>
+        <div class="toggle">
+          <button mat-icon-button>
+            <mat-icon class="icon_login">account_circle</mat-icon>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </nav>
 </header>
+<div class="header"></div>
