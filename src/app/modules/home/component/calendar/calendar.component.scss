@@ -1,0 +1,194 @@
+@import 'src/assets/sass/instance';
+.calendar {
+  background-color: var(--c0);
+  @include wh(252px);
+  &__content {
+    @include whs(100%);
+    //padding-top: 50px;
+    &__title {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-top: 8px;
+      font-weight: 500;
+      color: var(--c3);
+    }
+    &__container {
+      @include box-shadow(0px 2px 5px);
+      height: calc(100% - 55px);
+      @include border-radius(4px);
+      .header {
+        @include user-select(none);
+        display: grid;
+        grid-template-columns: 30px auto 30px;
+        @include border-radius(4px 4px 0 0);
+        position: relative;
+        background-color: var(--c5);
+        height: 50px;
+        width: 100%;
+        &::before,
+        &::after {
+          content: "";
+          width: 30px;
+          height: 48px;
+          position: absolute;
+          background-color: var(--c3);
+          @include border-radius(6px);
+        }
+        &::after {
+          left: 34px;
+          top: -20px;
+        }
+        &::before {
+          right: 34px;
+          top: -20px;
+        }
+        &__tax_calendar {
+          p {
+            margin: 0;
+            text-align: center;
+            // color: var(--c1);
+            &.year {
+              font-weight: 600;
+              font-size: 20px;
+              padding-top: 5px;
+            }
+          }
+        }
+        &__changes_month {
+          @include flex;
+          @include align-items(center);
+          @include justify-content(center);
+          &__month_icon {
+            height: 24px;
+            cursor: pointer;
+            @include border-radius(50%);
+            &:hover {
+              color: var(--c1);
+              background-color: var(--c3);
+            }
+          }
+        }
+      }
+      .data {
+        @include border-radius(0 0 4px 4px);
+        position: relative;
+        &__content {
+          display: grid;
+          grid-template-columns: repeat(7, 36px);
+          background-color: var(--c1);
+          &__days {
+            @include flex;
+            @include align-items(center);
+            @include justify-content(center);
+            height: 36px;
+            font-weight: 500;
+            font-size: 14px;
+            border-bottom: 2px solid var(--c3);
+            @include user-select(none);
+          }
+          &__num_day {
+            height: 36px;
+            cursor: pointer;
+            @include flex;
+            @include align-items(center);
+            @include justify-content(center);
+            @include user-select(none);
+            &.last {
+              background-color: var(--c5);
+              color: var(--c8);
+            }
+            &__day {
+              @include whs(30px);
+              @include flex;
+              @include align-items(center);
+              @include justify-content(center);
+              &.selected {
+                @include border-radius(50%);
+                background-color: var(--c3);
+                color: var(--c1);
+              }
+              &:hover {
+                @include transform(scale(1.1));
+                font-weight: 500;
+              }
+            }
+          }
+        }
+        &__content2 {
+          top: 0;
+          padding: 10px;
+          display: none;
+          position: absolute;
+          animation-duration: 2s;
+          animation-name: slideout;
+          @include scroll(var(--c3));
+          background-color: var(--c1);
+          @include whs(calc(100% - 20px));
+          &.view_more2 {
+            display: block;
+            animation-name: slidein;
+            // animation-duration: 3s;
+          }
+          ul {
+            padding-inline-start: 16px;
+            margin: 0;
+            list-style-type: none;
+            li {
+              position: relative;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              font-size: 12px;
+              padding-right: 10px;
+              cursor: pointer;
+              &::after {
+                border-bottom: 2px solid;
+                width: 90%;
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                content: "";
+              }
+              &:hover {
+                font-weight: 500;
+                transform: scale(1.1);
+              }
+            }
+          }
+        }
+      }
+      .view_more {
+        height: 40px;
+        @include flex;
+        cursor: pointer;
+        color: var(--c1);
+        @include user-select(none);
+        background-color: var(--c3);
+        @include align-items(center);
+        @include justify-content(center);
+        @include border-radius(0 0 4px 4px);
+        &__icon {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

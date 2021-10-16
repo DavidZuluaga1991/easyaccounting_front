@@ -1,11 +1,13 @@
+import { DescriptionData } from "../description-data/description-data";
+
 export interface ITaxCalendar {
-  date: { year: number, mounth: number, day: number };
-  description: { order: number, text: string }[];
+  date: Date;
+  description: DescriptionData[];
 }
 
 export class TaxCalendar implements ITaxCalendar {
-  date: { year: number, mounth: number, day: number };
-  description: { order: number, text: string }[];
+  date: Date;
+  description: DescriptionData[];
 
   constructor(tax: ITaxCalendar) {
       this.date = tax.date;

@@ -47,14 +47,14 @@
 // End flipcard
 //--------------------
 // add scroll
-@mixin scroll($color: $c16) {
+@mixin scroll($color: var(--c3)) {
   overflow-y: auto;
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
       @include wh(8px);
       -webkit-appearance: none;
-      background-color: $c0;
+      background-color: var(--c8);
   }
   &::-webkit-scrollbar-thumb {
       border-radius: 10px;

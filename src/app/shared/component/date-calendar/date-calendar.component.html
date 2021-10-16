@@ -1,0 +1,27 @@
+<div class="header_date_calendar">
+  <div class="header_date">
+    <div class="header_date__changes_month">
+      <div class="header_date__changes_month__month_icon" (click)="changeMonth(-1)">
+        <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+      </div>
+    </div>
+    <div class="header_date__tax_calendar">
+      <p class="year">{{ dateInit | datecustom }}</p>
+      <p class="month">{{ dateInit | datecustom: "month" }}</p>
+    </div>
+    <div class="header_date__changes_month">
+      <div class="header_date__changes_month__month_icon" (click)="changeMonth(1)">
+        <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="date_calendar">
+    <div class="date_calendar__days" *ngFor="let day of dayNames">{{ day }}</div>
+    <div class="date_calendar__num_day {{ day.class ?? day.class }}" *ngFor="let day of days"
+      (click)="changeDate(day.date)">
+      <div class="date_calendar__num_day__day {{ day.selected ? 'selected' : '' }}">
+        {{ day.date | datecustom: "day" }}
+      </div>
+    </div>
+  </div>
+</div>

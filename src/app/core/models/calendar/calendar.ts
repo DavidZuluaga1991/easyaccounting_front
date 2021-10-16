@@ -1,24 +1,18 @@
+
 export interface ICalendar {
-  id: number;
-  text: string;
-  selectable: boolean;
-  description: { order: number, text: string }[];
+  date: Date;
   selected?: boolean;
+  class?: string;
 }
 
 export class Calendar implements ICalendar {
-  id: number;
-  text: string;
-  selectable: boolean;
-  description: { order: number, text: string }[];
+  date: Date;
   selected?: boolean;
+  class?: string;
 
   constructor(calendar: ICalendar) {
-      this.id = calendar.id;
-      this.text = calendar.text;
-      this.selectable = calendar.selectable;
-      this.description = calendar.description;
+      this.date = calendar.date;
       this.selected = calendar.selected;
+      this.class = calendar.class;
   }
-
 }

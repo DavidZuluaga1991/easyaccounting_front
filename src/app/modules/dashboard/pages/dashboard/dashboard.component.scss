@@ -1,0 +1,20 @@
+.dashboard {
+  gap: 15px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  // background-color: tomato;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 20px;
+  &__admin_calendar {
+    display: grid;
+    grid-template-columns: 200px auto;
+    &__actions {
+      background-color: violet;
+    }
+    &__content {
+      background-color: yellowgreen;
+    }
+  }
+}

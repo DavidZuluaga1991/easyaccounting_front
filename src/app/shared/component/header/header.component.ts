@@ -22,7 +22,7 @@ export class HeaderComponent {
 
   public themeAction(event: any) {
     this.themeService.onThemeData(event.checked ? 'dark-theme' : 'ligth-theme');
-    console.log(event.checked ? 'dark-theme' : 'ligth-theme');
+    // console.log(event.checked ? 'dark-theme' : 'ligth-theme');
   }
 
 }

@@ -45,7 +45,7 @@
       <li >
         <div class="toggle">
           <mat-icon class="icon">light_mode</mat-icon>
-          <mat-slide-toggle class="slide" (change)='themeAction($event)'></mat-slide-toggle>
+          <mat-slide-toggle class="slide" [color]="'primary'" (change)='themeAction($event)'></mat-slide-toggle>
           <mat-icon class="icon">dark_mode</mat-icon>
         </div>
       </li>

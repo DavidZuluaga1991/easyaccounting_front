@@ -8,6 +8,7 @@
   --c5: #ededed;
   --c6: #da920e;
   --c7: #d3d3d3;
+  --c8: #b7b7c5;
 }
 
 .dark-theme {
@@ -19,6 +20,7 @@
   --c5: #ededed;
   --c6: #da920e;
   --c7: #d3d3d3;
+  --c8: #b7b7c5;
 }
 $variables: (
   --c0: var(--c0),
@@ -29,4 +31,5 @@ $variables: (
   --c5: var(--c5),
   --c6: var(--c6),
   --c7: var(--c7),
+  --c8: var(--c8),
 );

@@ -1,0 +1,45 @@
+<!-- <div class="calendar">
+  <div class="calendar__content">
+    <div class="calendar__content__title">Calendario Tributario</div>
+
+    <div class="calendar__content__container">
+      <div class="header">
+        <div class="header__changes_month">
+          <div class="header__changes_month__month_icon" (click)="changeMonth(-1)" *ngIf="!viewMore">
+            <mat-icon class="icon">keyboard_arrow_left</mat-icon>
+          </div>
+        </div>
+        <div class="header__tax_calendar">
+          <p class="year">{{ dateInit | datecustom }}</p>
+          <p class="month"> {{ viewMore ? (dateInit | datecustom: "day") + ' - ': '' }} {{ dateInit | datecustom:
+            "month" }}</p>
+        </div>
+        <div class="header__changes_month">
+          <div class="header__changes_month__month_icon" (click)="changeMonth(1)" *ngIf="!viewMore">
+            <mat-icon class="icon">keyboard_arrow_right</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div class="data">
+        <div class="data__content">
+          <div class="data__content__days" *ngFor="let day of dayNames">{{ day }}</div>
+          <div class="data__content__num_day {{ day.class ?? day.class }}" *ngFor="let day of numDays"
+            (click)="changeDate(day.date)">
+            <div class="data__content__num_day__day {{ day.selected ? 'selected' : '' }}">
+              {{ day.date | datecustom: "day" }}
+            </div>
+          </div>
+        </div>
+        <div class="data__content2 {{ viewMore ? 'view_more2' : ''}}">
+          <ul>
+            <li *ngFor="let item of selectDay?.description">{{ item.description }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="view_more" (click)="viewMore = !viewMore">
+        <mat-icon class="view_more__icon">{{ viewMore ? 'visibility_off' : 'visibility' }}</mat-icon>
+        {{viewMore ? 'Ver menos' : 'Ver más'}}
+      </div>
+    </div>
+  </div>
+</div> -->

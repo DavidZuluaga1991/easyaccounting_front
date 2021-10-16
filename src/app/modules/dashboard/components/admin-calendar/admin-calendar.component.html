@@ -1,0 +1,36 @@
+<div class="admin_calendar">
+  <div class="admin_calendar__content">
+    <div class="admin_calendar__content__date">
+      <app-date-calendar (selectDay)="selectDate($event)"></app-date-calendar>
+    </div>
+    <form [formGroup]="formGroup" class="admin_calendar__content__form">
+      <div class="content_title">
+        <h3 class="content_title__title">{{ formGroup.get('date')?.value | date: 'dd/MM/YYYY'}}</h3>
+        <div class="content_title__add_action">
+          <button mat-mini-fab [color]="'primary'" (click)="addDescription()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="content_description">
+        <div class="content_description__description" formArrayName="description" cdkDropList
+          (cdkDropListDropped)="onDropped($event)">
+          <div class="content_description__description__details" *ngFor="let item of description.controls; let i=index"
+            [formGroupName]="i" cdkDrag>
+            <div class="move_position"></div>
+            <mat-form-field class="field">
+              <mat-label>Nombre archivo</mat-label>
+              <input matInput formControlName="description">
+            </mat-form-field>
+            <button mat-icon-button [color]="'primary'" (click)="removeDescription(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="content_actions">
+        <button mat-button>Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+@import 'src/assets/sass/instance';
+.header_date_calendar {
+  .header_date {
+    margin-top: 20px;
+    @include user-select(none);
+    display: grid;
+    grid-template-columns: 30px auto 30px;
+    @include border-radius(4px 4px 0 0);
+    position: relative;
+    background-color: var(--c5);
+    height: 50px;
+    width: 100%;
+    &::before,
+    &::after {
+      content: "";
+      width: 30px;
+      height: 48px;
+      position: absolute;
+      background-color: var(--c3);
+      @include border-radius(6px);
+    }
+    &::after {
+      left: 34px;
+      top: -20px;
+    }
+    &::before {
+      right: 34px;
+      top: -20px;
+    }
+    &__tax_calendar {
+      p {
+        margin: 0;
+        text-align: center;
+        // color: var(--c1);
+        &.year {
+          font-weight: 600;
+          font-size: 20px;
+          padding-top: 5px;
+        }
+      }
+    }
+    &__changes_month {
+      @include flex;
+      @include align-items(center);
+      @include justify-content(center);
+      &__month_icon {
+        height: 24px;
+        cursor: pointer;
+        @include border-radius(50%);
+        &:hover {
+          color: var(--c1);
+          background-color: var(--c3);
+        }
+      }
+    }
+  }
+  .date_calendar {
+    display: grid;
+    aspect-ratio: 1 / 1;
+    grid-template-columns: repeat(auto-fill, calc(100% / 7));
+    // grid-template-rows: repeat(auto-fill, 36px);
+    background-color: var(--c1);
+    &__days {
+      @include flex;
+      aspect-ratio: 1 / 1;
+      @include align-items(center);
+      @include justify-content(center);
+      // height: 36px;
+      font-weight: 500;
+      font-size: 14px;
+      border-bottom: 2px solid var(--c3);
+      @include user-select(none);
+    }
+    &__num_day {
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      @include flex;
+      @include align-items(center);
+      @include justify-content(center);
+      @include user-select(none);
+      &.last {
+        background-color: var(--c5);
+        color: var(--c8);
+      }
+      &__day {
+        @include whs(30px);
+        @include flex;
+        @include align-items(center);
+        @include justify-content(center);
+        &.selected {
+          @include border-radius(50%);
+          background-color: var(--c3);
+          color: var(--c1);
+        }
+        &:hover {
+          @include transform(scale(1.1));
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

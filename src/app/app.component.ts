@@ -13,7 +13,8 @@ export class AppComponent {
   @HostBinding('class') componentCssClass: any;
 
   constructor(public overlayContainer: OverlayContainer, private themeService: ThemeService) {
-    this.onSetTheme('ligth-theme');
+    // this.onSetTheme('ligth-theme');
+    this.onSetTheme('dark-theme');
     themeService.getOnTheme().subscribe((theme) => {
       this.onSetTheme(theme);
     });
