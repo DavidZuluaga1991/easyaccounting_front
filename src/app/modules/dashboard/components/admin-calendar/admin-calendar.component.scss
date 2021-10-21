@@ -1,18 +1,28 @@
 @import 'src/assets/sass/instance';
 .admin_calendar {
   background-color: var(--c1);
-  @include border-radius(4px);
-  @include box-shadow(0px 1px 5px);
+  // @include box-shadow(0px 1px 5px);
   &__content {
-    display: grid;
-    grid-template-columns: 300px 300px;
+    // display: grid;
+    // grid-template-columns: 300px 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    &__date {
+      width: 300px;
+    }
     &__form {
+      padding-top: 10px;
       gap: 10px;
+      width: 300px;
       display: grid;
       margin-top: 10px;
-      margin-bottom: 10px;
       padding-left: 20px;
       padding-right: 20px;
+      margin-bottom: 10px;
+      @include border-radius(4px);
+      @include box-shadow(0px 1px 5px);
       grid-template-rows: 40px 257px 40px;
       .content_title {
         display: flex;

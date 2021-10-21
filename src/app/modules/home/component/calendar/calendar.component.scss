@@ -72,50 +72,8 @@
       .data {
         @include border-radius(0 0 4px 4px);
         position: relative;
-        &__content {
-          display: grid;
-          grid-template-columns: repeat(7, 36px);
-          background-color: var(--c1);
-          &__days {
-            @include flex;
-            @include align-items(center);
-            @include justify-content(center);
-            height: 36px;
-            font-weight: 500;
-            font-size: 14px;
-            border-bottom: 2px solid var(--c3);
-            @include user-select(none);
-          }
-          &__num_day {
-            height: 36px;
-            cursor: pointer;
-            @include flex;
-            @include align-items(center);
-            @include justify-content(center);
-            @include user-select(none);
-            &.last {
-              background-color: var(--c5);
-              color: var(--c8);
-            }
-            &__day {
-              @include whs(30px);
-              @include flex;
-              @include align-items(center);
-              @include justify-content(center);
-              &.selected {
-                @include border-radius(50%);
-                background-color: var(--c3);
-                color: var(--c1);
-              }
-              &:hover {
-                @include transform(scale(1.1));
-                font-weight: 500;
-              }
-            }
-          }
-        }
         &__content2 {
-          top: 0;
+          top: 50px;
           padding: 10px;
           display: none;
           position: absolute;
@@ -123,7 +81,7 @@
           animation-name: slideout;
           @include scroll(var(--c3));
           background-color: var(--c1);
-          @include whs(calc(100% - 20px));
+          @include wh(calc(100% - 20px), calc(100% - 70px));
           &.view_more2 {
             display: block;
             animation-name: slidein;
