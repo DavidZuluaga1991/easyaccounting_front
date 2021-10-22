@@ -19,6 +19,7 @@ export class AdminCalendarComponent implements OnInit {
     date: new FormControl(new Date(), [Validators.required]),
     description: new FormArray([])
   });
+  public dates: Date[] = [];
 
   private historyCalendar: TaxCalendar[] = [];
 
@@ -78,7 +79,9 @@ export class AdminCalendarComponent implements OnInit {
 
   public selectDate(event: Date) {
     let tax: TaxCalendar = { date: event, description: [] };
+    this.dates = [];
     this.historyCalendar.forEach(h => {
+      this.dates.push(new Date(h.date));
       if (this.utils.isEqualDate(new Date(h.date), event)) {
         tax = h;
       }

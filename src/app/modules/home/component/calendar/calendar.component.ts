@@ -34,7 +34,6 @@ export class CalendarComponent implements OnInit {
       const date = new Date(x.date);
       return this.isEqualDate(date, event);
     });
-    console.log(event, f)
     if (f.length > 0) {
       this.selectDay = {
         date: f[0].date,

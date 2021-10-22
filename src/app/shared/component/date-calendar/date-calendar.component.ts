@@ -16,6 +16,7 @@ export class DateCalendarComponent implements OnInit, OnChanges {
   public utils: Utils = new Utils();
   @Input() public dateInit = new Date();
   @Input() public changesMonth = new Date();
+  @Input() public selectDate: Date[] = [];
   @Output() public selectDay = new EventEmitter<Date>();
 
   constructor() { }
@@ -52,9 +53,11 @@ export class DateCalendarComponent implements OnInit, OnChanges {
       date.setDate(d.getDate() - i);
       const day: Calendar = {
         date: date,
+        staticselected: this.selectDate.some(x => x === date),
         selected: false,
         class: 'last',
-      }
+      };
+      console.log(day)
       this.days.push(day);
       j++;
     }
@@ -68,7 +71,9 @@ export class DateCalendarComponent implements OnInit, OnChanges {
       const day: Calendar = {
         date: date,
         selected: this.utils.isEqualDate(date, this.dateInit),
+        staticselected: this.selectDate.some(x => this.utils.isEqualDate(date, x))
       }
+      console.log(day)
       if (day.selected) {
         this.daySelect = day;
       }
@@ -88,6 +93,7 @@ export class DateCalendarComponent implements OnInit, OnChanges {
       const day: Calendar = {
         date: tempdate,
         selected: false,
+        staticselected: this.selectDate.some(x => x === date),
         class: 'last'
       }
       this.days.push(day);
