@@ -23,11 +23,11 @@ export class AdminCalendarComponent implements OnInit {
 
   private historyCalendar: TaxCalendar[] = [];
 
-
   constructor(private fb: FormBuilder, private calendarService: TaxServiceService) { }
 
   ngOnInit(): void {
     this.calendarService.get('calendar').subscribe((data) => {
+      console.log(data);
       this.historyCalendar = data;
     });
   }
@@ -45,6 +45,17 @@ export class AdminCalendarComponent implements OnInit {
 
   get description() {
     return this.formGroup.get('description') as FormArray;
+  }
+
+  public sendData() {
+    const data: TaxCalendar = this.formGroup.value;
+    data.description.forEach((d, index) => {
+      d.order = index;
+    });
+    console.log(data);
+    this.calendarService.post('calendar', data ).subscribe((result) => {
+      console.log(result);
+    });
   }
 
   private formGroupCustom(description?: DescriptionData): FormGroup {
@@ -95,7 +106,7 @@ export class AdminCalendarComponent implements OnInit {
  * @param fromIndex Starting index of the item.
  * @param toIndex Index to which he item should be moved.
  */
-  moveItemInFormArray(formArray: FormArray, fromIndex: number, toIndex: number): void {
+  private moveItemInFormArray(formArray: FormArray, fromIndex: number, toIndex: number): void {
     const from = this.clamp(fromIndex, formArray.length - 1);
     const to = this.clamp(toIndex, formArray.length - 1);
 
@@ -109,7 +120,7 @@ export class AdminCalendarComponent implements OnInit {
     formArray.setControl(from, current);
   }
   /** Clamps a number between zero and a maximum. */
-  clamp(value: number, max: number): number {
+  private clamp(value: number, max: number): number {
     return Math.max(0, Math.min(max, value));
   }
 

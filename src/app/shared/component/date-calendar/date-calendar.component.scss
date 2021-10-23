@@ -87,6 +87,11 @@
         @include flex;
         @include align-items(center);
         @include justify-content(center);
+        &.selected2 {
+          @include border-radius(50%);
+          background-color: var(--c6);
+          color: var(--c1);
+        }
         &.selected {
           @include border-radius(50%);
           background-color: var(--c3);

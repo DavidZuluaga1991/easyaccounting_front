@@ -57,7 +57,6 @@ export class DateCalendarComponent implements OnInit, OnChanges {
         selected: false,
         class: 'last',
       };
-      console.log(day)
       this.days.push(day);
       j++;
     }
@@ -73,7 +72,6 @@ export class DateCalendarComponent implements OnInit, OnChanges {
         selected: this.utils.isEqualDate(date, this.dateInit),
         staticselected: this.selectDate.some(x => this.utils.isEqualDate(date, x))
       }
-      console.log(day)
       if (day.selected) {
         this.daySelect = day;
       }
